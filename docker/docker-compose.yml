@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  devenv: 
+    hostname: 'devenv'
+    build: 
+      dockerfile: docker/Dockerfile 
+      context: '.'
+    volumes:
+      - "${PWD}/src:/app"
+      - "${PWD}/.cache/root:/root"
+    working_dir: "/app/terraform"
+    environment:
+      - TF_VAR_kubernetes_version=${KUBE_VERSION}
+      - TF_VAR_location=${LOCATION}
+      - TF_VAR_tenant_id=${TENANT_ID}
+      - TF_VAR_subscription_id=${SUBSCRIPTION_ID}
+      - TF_VAR_ssh_key=${SSH_KEY}
+
+  producer:
+    image: dfdacr.azurecr.io
+    working_dir: "/app"
+    environment:
+      - AZURE_STORAGE_CONNECTION_STRING=${AZURE_STORAGE_CONNECTION_STRING}
+      - AZURE_STORAGE_QUEUE_NAME=${AZURE_STORAGE_QUEUE_NAME}

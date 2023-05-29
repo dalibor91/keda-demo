@@ -1,0 +1,22 @@
+{
+  "name": "keda-producer",
+  "version": "1.0.0",
+  "description": "Simple producer to test KEDA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:produce": "ts-node ./src/main.ts produce",
+    "dev:consume": "ts-node ./src/main.ts consume",
+    "build": "tsc"
+  },
+  "author": "Dalibor Menkovic",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@azure/storage-queue": "^12.13.0"
+  }
+}

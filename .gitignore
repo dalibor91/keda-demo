@@ -1,0 +1,8 @@
+.envrc 
+# Terraform
+.terraform
+*.hcl 
+*.tfstate
+*.tfstate.*
+*.lock.hcl
+*.lock.info

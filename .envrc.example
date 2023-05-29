@@ -1,0 +1,29 @@
+## start: TERRAFORM
+
+export KUBE_VERSION="1.24.9"
+export LOCATION="westeurope"
+# Azure Tenant Id 
+export TENANT_ID="***"
+# Azure Subscription ID
+export SUBSCRIPTION_ID="***"
+# Your public ssh key
+export SSH_KEY="`cat ~/.ssh/id_rsa.pub`"
+
+## end: TERRAFORM
+
+
+## -- This is after terraform is run -- 
+
+# This next block will  be filled after we run terraform 
+## start: APPS LOCAL
+# this can be found in ./src/kubernetes/01-keda-consumer.yaml
+
+# you can reuse this if you don't want to compy/paste
+# export AZURE_STORAGE_CONNECTION_STRING="`cat src/kubernetes/01-keda-consumer.yaml | grep AZURE_STORAGE_CONNECTION_STRING -A 1 | tail -1 | egrep -Eo 'DefaultEndpoint([^"]+)'`"
+# export AZURE_STORAGE_QUEUE_NAME="`cat src/kubernetes/01-keda-consumer.yaml | grep AZURE_STORAGE_QUEUE_NAME -A 1 | tail -1 | egrep -Eo 'devops-finland([^"]+)'`"
+
+export AZURE_STORAGE_CONNECTION_STRING="***"
+export AZURE_STORAGE_QUEUE_NAME="***"
+
+## end: APPS LOCAL
+
