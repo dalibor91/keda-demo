@@ -18,7 +18,7 @@ services:
       - TF_VAR_ssh_key=${SSH_KEY}
 
   producer:
-    image: dfdacr.azurecr.io
+    image: dfdacr.azurecr.io/producer
     working_dir: "/app"
     environment:
       - AZURE_STORAGE_CONNECTION_STRING=${AZURE_STORAGE_CONNECTION_STRING}
